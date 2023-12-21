@@ -1,0 +1,41 @@
+﻿@model ContactInfoVM
+
+<section>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <form asp-controller="ContactInfo" asp-action="Update" method="post">
+                        <div class="card-body p-5">
+                            <h3 class="mb-5">Contact Info</h3>
+
+                            <div class="form-group">
+                                <label asp-for="Email" class="form-label"></label>
+                                <br />
+                                <input asp-for="Email" class="form-control form-control-lg"
+                                       disabled="@(Model.IsModerator ? "disabled" : "")" />
+                                <span asp-validation-for="Email" style="color: red"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label asp-for="PhoneNumber" class="form-label"></label>
+                                <br />
+                                <input asp-for="PhoneNumber" class="form-control form-control-lg"
+                                       disabled="@(Model.IsModerator ? "disabled" : "")" />
+                                <span asp-validation-for="PhoneNumber" style="color: red"></span>
+                            </div>
+                            <br />
+
+                            <button class="btn btn-primary btn-lg btn-block" type="submit"
+                                    disabled="@(Model.IsModerator ? "disabled" : "")">
+                                Update
+                            </button>
+                            <br />
+                            <br />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
